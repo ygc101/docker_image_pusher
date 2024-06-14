@@ -1,1 +1,2 @@
-
+docker.io/grafana/grafana
+docker.io/bitnami/postgresql
