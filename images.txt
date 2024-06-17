@@ -1,1 +1,1 @@
-grafana/grafana:9.5.3
+jenkins/inbound-agent:4.13-1-jdk8
