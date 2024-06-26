@@ -1,1 +1,1 @@
-docker.io/alpine:3.19.1
+registry.k8s.io/etcd:3.5.13-0
