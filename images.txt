@@ -1,1 +1,1 @@
-registry.k8s.io/alpine
+registry.k8s.io/sig-storage/local-volume-provisioner
