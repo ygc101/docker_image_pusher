@@ -1,0 +1,41 @@
+name: Docker Retag Images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Login to Aliyun Container Registry
+        run: |
+          echo ${{ secrets.ALIYUN_PASSWORD }} | docker login -u ${{ secrets.ALIYUN_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password-stdin
+
+      - name: Retag Docker Images
+        run: |
+          chmod +x ./retag_images.sh
+          ./retag_images.sh
+
+      - name: Push Retagged Images to DockerHub
+        run: |
+          while IFS= read -r line
+          do
+            original_image=$(echo $line | cut -d: -f1)
+            original_tag=$(echo $line | cut -d: -f2)
+            docker push "$original_image:$original_tag"
+          done < images.txt
