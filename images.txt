@@ -1,1 +1,1 @@
-quay.io/opstree/redis
+registry.k8s.io/coredns
