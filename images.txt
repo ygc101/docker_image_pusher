@@ -1,1 +1,1 @@
-quay.io/calico/kube-controllers
+quay.io/argoproj/workflow-controller
