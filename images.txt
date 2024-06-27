@@ -1,1 +1,1 @@
-registry.k8s.io/sig-storage/local-volume-provisioner
+quay.io/opstree/redis
