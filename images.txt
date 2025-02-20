@@ -1,1 +1,2 @@
-docker.n8n.io/n8nio/n8n
+#支持指定架构
+--platform=linux/arm64 infiniflow/infinity:v0.6.0-dev3
