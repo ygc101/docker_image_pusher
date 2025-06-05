@@ -1,5 +1,4 @@
 #支持指定架构
---platform=linux/arm64
 elasticsearch:8.17.4
 logstash:8.17.4
 kibana:8.17.4
